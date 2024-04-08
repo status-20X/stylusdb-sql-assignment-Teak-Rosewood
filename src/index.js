@@ -31,7 +31,7 @@ async function executeSELECTQuery(query) {
     // Apply WHERE clause filtering after JOIN (or on the original data if no join)
     const filteredData = whereClauses.length > 0 ? data.filter((row) => whereClauses.every((clause) => evaluateCondition(row, clause))) : data;
 
-    filteredData.map((row) => {
+    return filteredData.map((row) => {
         const selectedRow = {};
         fields.forEach((field) => {
             // Assuming 'field' is just the column name without table prefix
